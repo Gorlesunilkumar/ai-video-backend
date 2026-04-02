@@ -1,0 +1,11 @@
+file 'src/main/resources/static/default.jpg'
+duration 3
+file 'src/main/resources/static/default.jpg'
+duration 3
+file 'src/main/resources/static/default.jpg'
+duration 3
+file 'src/main/resources/static/default.jpg'
+duration 3
+file 'src/main/resources/static/default.jpg'
+duration 3
+file 'src/main/resources/static/default.jpg'

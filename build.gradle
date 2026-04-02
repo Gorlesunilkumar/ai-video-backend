@@ -1,0 +1,50 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.5'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.sunil'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	// ✅ SPRING WEB
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// ✅ JSON (Jackson - already used by Spring)
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+	// ✅ JSON (org.json - REQUIRED for ImageService 🔥)
+	implementation 'org.json:json:20240303'
+
+	// ✅ LOMBOK (optional)
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// ✅ DEVTOOLS
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// ✅ TEST
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
