@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
@@ -6,8 +6,6 @@ COPY . .
 
 RUN chmod +x gradlew
 
-# Skip tests to avoid failure
-RUN ./gradlew build -x test
+RUN ./gradlew build -x test --no-daemon
 
-# Find jar automatically and run
 CMD ["sh", "-c", "java -jar $(ls build/libs/*.jar | head -n 1)"]
